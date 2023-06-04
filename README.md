@@ -7,10 +7,6 @@ PROGRESS:
   ✅ Add products ke text file sudah selesai
   
   🚧 Show all products hampir selesai (ada bug)
-  
-  
-  
-  
-  
+---------------------------------------------------------
 ✅ Completed     🚧 Work in Progress     ❌ Incompleted
 
