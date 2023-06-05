@@ -64,10 +64,10 @@ void loadProductsFromFile(BSTNode** root) {
     Product product;
     int lineCount = 0;
     while (1) {
-        int result = fscanf(file, "%d | %[^\n]s | %[^\n]s | %[^\n]s | %f | %f | %d\n", &product.id, product.productName, product.brandName, product.productCategory, &product.buyPrice, &product.sellPrice, &product.stock);
+        int result = fscanf(file, "%d | %[^|] | %[^|] | %[^|] | %f | %f | %d\n", &product.id, product.productName, product.brandName, product.productCategory, &product.buyPrice, &product.sellPrice, &product.stock);
         if (result == EOF) {
             break;  // Reached end of file
-        } else if (result < 7) {
+        } else if (result < 8) {
             insertProduct(root, product);
         } else {
             // Invalid line format or error occurred
@@ -340,6 +340,8 @@ int main() {
 
     // To load the text file content into BST
     loadProductsFromFile(&root);
+    printf("ID: %s", root->left->product.productCategory);
+
 
     int menuChoice;
     do {
