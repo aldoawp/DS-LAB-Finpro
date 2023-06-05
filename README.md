@@ -11,3 +11,5 @@ PROGRESS:
   🚧 Search, delete, and update di menu 2
 
   🚧 Generate reports
+
+  🚧 User interface di permak
