@@ -8,8 +8,8 @@ PROGRESS:
   
   ✅ Show all products hampir selesai (ada bug)
   
-  🚧 Search, delete, and update di menu 2
+  ✅ Search, delete, and update di menu 2
 
-  🚧 Generate reports
+  ✅ Generate reports
 
-  🚧 User interface di permak
+  ✅ User interface di permak
