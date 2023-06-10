@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <time.h>
 
+#define MAX_ID 10000
+
 // Structure to hold user information
 typedef struct {
     char username[20];
@@ -248,13 +250,13 @@ bool isIdExist(int id, const char *filename) {
 
 
 // Function to generate a unique ID for each product
-int generateProductId(const char *filename) {
+int generateProductId(const char* filename) {
     srand(time(NULL));
     int id;
     bool isUnique;
 
     do {
-        id = rand() % 9000 + 1000;
+        id = rand() % 9000 + 1000;  // Generate a random number between 1000 and 9999
         isUnique = !isIdExist(id, filename);
     } while (!isUnique);
 
@@ -665,8 +667,11 @@ int main() {
                                 getchar();
                                 if (opt == 'Y' || opt =='y')
                                     continue;
-                                else
+                                else {
+                                    BSTNode* root = NULL;
+                                    loadProductsFromFile(&root);
                                     break;
+                                }
                             }
                             system("cls");
                             break;
@@ -686,8 +691,11 @@ int main() {
                                     getchar();
                                     if (opt == 'Y' || opt =='y')
                                         continue;
-                                    else
+                                    else {
+                                        BSTNode* root = NULL;
+                                        loadProductsFromFile(&root);
                                         break;
+                                    }
                             }
                             system("cls");
                             break;
@@ -704,8 +712,11 @@ int main() {
                                     getchar();
                                     if (opt == 'Y' || opt =='y')
                                         continue;
-                                    else
+                                    else {
+                                        BSTNode* root = NULL;
+                                        loadProductsFromFile(&root);
                                         break;
+                                    }
                             }
                             system("cls");
                             break;
