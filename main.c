@@ -519,15 +519,41 @@ void generateReportByStock(BSTNode* root, int order) {
 
 
 // Function to display the main menu
-void displayMainMenu() {
-    printf("=========================\n");
-    printf("   XYZ STORE WAREHOUSE\n");
-    printf("=========================\n");
+void displayMainMenu(BSTNode* root) {
+    printf("========================================================\n");
+    printf("                   XYZ STORE WAREHOUSE\n");
+    printf("========================================================\n\n");
+//    printf(" ------------------------------------------------------------ \n");
+//    printf("| Low on stock:                                              |\n");
+    printf("Low on stock:\n");
+
+
+    bool hasLowStock = false;
+    checkLowStock(root, &hasLowStock); // Check low stock products
+//    printf(" ------------------------------------------------------------ \n");
+
+    if (!hasLowStock) {
+        printf("No product is low on stock.\n");
+    }
+
     printf("\n1. New Product\n");
     printf("2. Show All Product\n");
     printf("3. Generate Reports\n");
     printf("4. Exit\n");
     printf("\nEnter your choice: ");
+}
+
+
+void checkLowStock(BSTNode* root, bool* hasLowStock) {
+    if (root != NULL) {
+        checkLowStock(root->left, hasLowStock);
+        if (root->product.stock < 3) {
+            printf("ID= %-3d | Product Name= %-20s | Stock= %-3d\n",
+                   root->product.id, root->product.productName, root->product.stock);
+            *hasLowStock = true;
+        }
+        checkLowStock(root->right, hasLowStock);
+    }
 }
 
 
@@ -615,7 +641,7 @@ int main() {
 
         // To load the text file content into BST
         loadProductsFromFile(&root);
-        displayMainMenu();
+        displayMainMenu(root);
         scanf("%d", &menuChoice);
 
         switch (menuChoice) {
