@@ -4,8 +4,6 @@
 #include <stdbool.h>
 #include <time.h>
 
-#define MAX_ID 10000
-
 // Structure to hold user information
 typedef struct {
     char username[20];
